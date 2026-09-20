@@ -2,6 +2,11 @@
 
 All notable changes to the library will be documented in this file.
 
+## vX.X.X (Month DD, YYYY)
+
+- Add support for `codePoints`, `maxCodePoints`, `minCodePoints` and `notCodePoints` actions (pull request #1638)
+- Deprecate string conversion of `length`, `minLength` and `maxLength` actions in favor of the code point actions, as Valibot counts UTF-16 code units while JSON Schema counts Unicode code points, and warn about it in `warn` error mode (pull request #1638)
+
 ## v1.8.0 (September 11, 2026)
 
 - Add support for `ksuid` action (pull request #1370)
