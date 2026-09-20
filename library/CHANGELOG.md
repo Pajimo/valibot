@@ -2,6 +2,10 @@
 
 All notable changes to the library will be documented in this file.
 
+## vX.X.X (Month DD, YYYY)
+
+- Fix `ksuid` action to reject KSUIDs that exceed the maximum 160-bit value (pull request #1649)
+
 ## v1.5.0 (September 09, 2026)
 
 - Add `codePoints`, `maxCodePoints`, `minCodePoints` and `notCodePoints` validation actions to validate the number of Unicode code points (pull request #888)
