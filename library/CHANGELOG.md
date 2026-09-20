@@ -2,6 +2,10 @@
 
 All notable changes to the library will be documented in this file.
 
+## vX.X.X (Month DD, YYYY)
+
+- Change `minBytes`, `notBytes`, `minCodePoints`, `maxCodePoints`, `notCodePoints`, `minGraphemes`, `maxGraphemes`, `notGraphemes`, `minWords` and `notWords` actions to stop counting early or skip counting entirely when the string length already decides the result to improve performance (pull request #1631)
+
 ## v1.5.0 (September 09, 2026)
 
 - Add `codePoints`, `maxCodePoints`, `minCodePoints` and `notCodePoints` validation actions to validate the number of Unicode code points (pull request #888)
