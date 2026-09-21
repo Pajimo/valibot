@@ -25,14 +25,13 @@ describe('cacheAsync', () => {
 
     test('with config', () => {
       const schema = string();
-      expectTypeOf(cacheAsync(schema, { maxSize: 10 })).toExtend<
+      const cached = cacheAsync(schema, { maxSize: 10 });
+      expectTypeOf(cached).toExtend<
         SchemaWithCacheAsync<typeof schema, { maxSize: 10 }>
       >();
       expectTypeOf<
         SchemaWithCacheAsync<typeof schema, { maxSize: 10 }>
-      >().toExtend<
-        ReturnType<typeof cacheAsync<typeof schema, { maxSize: 10 }>>
-      >();
+      >().toExtend<typeof cached>();
     });
   });
   describe('should infer correct types', () => {
