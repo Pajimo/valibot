@@ -20,6 +20,11 @@ export function _getWordCount(
   if (limit <= 0) {
     return 0;
   }
+  // Hint: An empty input has no words, so skip the expensive segmentation and
+  // avoid creating the segmenter
+  if (input.length === 0) {
+    return 0;
+  }
   if (!store) {
     store = new Map();
   }

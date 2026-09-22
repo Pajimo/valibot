@@ -6,6 +6,17 @@ describe('_getWordCount', () => {
     vi.restoreAllMocks();
   });
 
+  test('without creating a segmenter for an empty input', () => {
+    const OriginalSegmenter = Intl.Segmenter;
+    const segmenterSpy = vi
+      .spyOn(Intl, 'Segmenter')
+      .mockImplementation(function (locales, options) {
+        return new OriginalSegmenter(locales, options);
+      });
+    expect(_getWordCount('en', '', Infinity)).toBe(0);
+    expect(segmenterSpy).not.toHaveBeenCalled();
+  });
+
   test('should return word count', () => {
     expect(_getWordCount('en', '', Infinity)).toBe(0);
     expect(_getWordCount('en', 'h', Infinity)).toBe(1);
