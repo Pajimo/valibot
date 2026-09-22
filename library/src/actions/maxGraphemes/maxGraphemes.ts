@@ -122,8 +122,10 @@ export function maxGraphemes(
     message,
     '~run'(dataset, config) {
       if (dataset.typed) {
+        // Hint: Grapheme count cannot exceed UTF-16 length, so skip counting
+        // when the length is within the requirement
         if (dataset.value.length > this.requirement) {
-          const count = _getGraphemeCount(dataset.value);
+          const count = _getGraphemeCount(dataset.value, Infinity);
           if (count > this.requirement) {
             _addIssue(this, 'graphemes', dataset, config, {
               received: `${count}`,

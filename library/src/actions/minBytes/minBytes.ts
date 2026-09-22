@@ -116,6 +116,8 @@ export function minBytes(
     message,
     '~run'(dataset, config) {
       if (dataset.typed) {
+        // Hint: UTF-8 byte length cannot be less than UTF-16 length, so skip
+        // counting when the length already meets the requirement
         if (dataset.value.length < this.requirement) {
           const length = _getByteCount(dataset.value);
           if (length < this.requirement) {

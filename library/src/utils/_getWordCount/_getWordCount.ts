@@ -5,7 +5,7 @@ let store: Map<string, Intl.Segmenter>;
  *
  * @param locales The locales to be used.
  * @param input The input to be measured.
- * @param limit The optional count limit.
+ * @param limit The count limit. Pass `Infinity` to count the entire input.
  *
  * @returns The word count, or the count at which the limit was reached.
  *
@@ -15,9 +15,9 @@ let store: Map<string, Intl.Segmenter>;
 export function _getWordCount(
   locales: Intl.LocalesArgument,
   input: string,
-  limit?: number
+  limit: number
 ): number {
-  if (limit !== undefined && limit <= 0) {
+  if (limit <= 0) {
     return 0;
   }
   if (!store) {
@@ -38,7 +38,7 @@ export function _getWordCount(
   for (const segment of segments) {
     if (segment.isWordLike) {
       count++;
-      if (limit !== undefined && count >= limit) {
+      if (count >= limit) {
         break;
       }
     }

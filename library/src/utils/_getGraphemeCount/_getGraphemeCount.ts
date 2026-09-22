@@ -4,15 +4,15 @@ let segmenter: Intl.Segmenter;
  * Returns the grapheme count of the input.
  *
  * @param input The input to be measured.
- * @param limit The optional count limit.
+ * @param limit The count limit. Pass `Infinity` to count the entire input.
  *
  * @returns The grapheme count, or the count at which the limit was reached.
  *
  * @internal
  */
 // @__NO_SIDE_EFFECTS__
-export function _getGraphemeCount(input: string, limit?: number): number {
-  if (limit !== undefined && limit <= 0) {
+export function _getGraphemeCount(input: string, limit: number): number {
+  if (limit <= 0) {
     return 0;
   }
   if (!segmenter) {
@@ -23,7 +23,7 @@ export function _getGraphemeCount(input: string, limit?: number): number {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   for (const _ of segments) {
     count++;
-    if (limit !== undefined && count >= limit) {
+    if (count >= limit) {
       break;
     }
   }

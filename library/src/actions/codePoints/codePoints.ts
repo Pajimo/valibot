@@ -120,7 +120,7 @@ export function codePoints(
     message,
     '~run'(dataset, config) {
       if (dataset.typed) {
-        const count = _getCodePointCount(dataset.value);
+        const count = _getCodePointCount(dataset.value, Infinity);
         if (count !== this.requirement) {
           _addIssue(this, 'code points', dataset, config, {
             received: `${count}`,

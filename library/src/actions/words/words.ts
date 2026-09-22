@@ -128,7 +128,7 @@ export function words(
     message,
     '~run'(dataset, config) {
       if (dataset.typed) {
-        const count = _getWordCount(this.locales, dataset.value);
+        const count = _getWordCount(this.locales, dataset.value, Infinity);
         if (count !== this.requirement) {
           _addIssue(this, 'words', dataset, config, {
             received: `${count}`,

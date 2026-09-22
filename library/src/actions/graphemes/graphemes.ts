@@ -116,7 +116,7 @@ export function graphemes(
     message,
     '~run'(dataset, config) {
       if (dataset.typed) {
-        const count = _getGraphemeCount(dataset.value);
+        const count = _getGraphemeCount(dataset.value, Infinity);
         if (count !== this.requirement) {
           _addIssue(this, 'graphemes', dataset, config, {
             received: `${count}`,

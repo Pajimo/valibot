@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import type { StringIssue } from '../../schemas/index.ts';
 import { _getCodePointCount } from '../../utils/index.ts';
 import { expectActionIssue, expectNoActionIssue } from '../../vitest/index.ts';
@@ -72,6 +72,16 @@ describe('maxCodePoints', () => {
       expectNoActionIssue(action, ['', ' ', '1', 'foo', '12345', '12 45']);
     });
 
+    test('without counting if code unit length is within requirement', () => {
+      const codePointAtSpy = vi.spyOn(String.prototype, 'codePointAt');
+      try {
+        action['~run']({ typed: true, value: '12345' }, {});
+        expect(codePointAtSpy).not.toHaveBeenCalled();
+      } finally {
+        codePointAtSpy.mockRestore();
+      }
+    });
+
     test('for valid emoji', () => {
       expectNoActionIssue(action, ['😀', '😀👋🏼🧩', '😶‍🌫️👍', '1️⃣', '1️⃣㊙️']);
     });
@@ -110,7 +120,7 @@ describe('maxCodePoints', () => {
         action,
         baseIssue,
         ['123456', '12345 ', '123456789', 'foo bar baz'],
-        (value) => `${_getCodePointCount(value)}`
+        (value) => `${_getCodePointCount(value, Infinity)}`
       );
     });
 
@@ -126,7 +136,7 @@ describe('maxCodePoints', () => {
           '😀👋🏼🧩👩🏻‍🏫🫥🫠',
           '😀👋🏼🧩👩🏻‍🏫🫥🫠🧑‍💻👻🥎',
         ],
-        (value) => `${_getCodePointCount(value)}`
+        (value) => `${_getCodePointCount(value, Infinity)}`
       );
     });
 
@@ -143,7 +153,7 @@ describe('maxCodePoints', () => {
           // 🍡: 1 code point emoji & U+3099 consumes one more code point
           '𛁟゙ん𛀸゙🍡',
         ],
-        (value) => `${_getCodePointCount(value)}`
+        (value) => `${_getCodePointCount(value, Infinity)}`
       );
     });
   });

@@ -105,7 +105,7 @@ describe('minGraphemes', () => {
         action,
         baseIssue,
         ['', ' ', '1', 'foo', '1234', '12 4'],
-        (value) => `${_getGraphemeCount(value)}`
+        (value) => `${_getGraphemeCount(value, Infinity)}`
       );
     });
 
@@ -114,7 +114,7 @@ describe('minGraphemes', () => {
         action,
         baseIssue,
         ['😀', '😀👋🏼', '😀👋🏼🧩👩🏻‍🏫'],
-        (value) => `${_getGraphemeCount(value)}`
+        (value) => `${_getGraphemeCount(value, Infinity)}`
       );
     });
   });

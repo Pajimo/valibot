@@ -126,7 +126,7 @@ describe('minCodePoints', () => {
         action,
         baseIssue,
         ['', ' ', '1', 'foo', '1234', '12 4'],
-        (value) => `${_getCodePointCount(value)}`
+        (value) => `${_getCodePointCount(value, Infinity)}`
       );
     });
 
@@ -135,7 +135,7 @@ describe('minCodePoints', () => {
         action,
         baseIssue,
         ['1️⃣', '😀', '😀👋🏼🧩'],
-        (value) => `${_getCodePointCount(value)}`
+        (value) => `${_getCodePointCount(value, Infinity)}`
       );
     });
 
@@ -150,7 +150,7 @@ describe('minCodePoints', () => {
           '葛󠄀城市',
           '天𛂱゚𛃭', // 天ぷら (tempura)
         ],
-        (value) => `${_getCodePointCount(value)}`
+        (value) => `${_getCodePointCount(value, Infinity)}`
       );
     });
   });
