@@ -522,9 +522,10 @@ export function convertAction(
       break;
     }
 
-    // TODO(v2): Remove the legacy string conversion for length actions.
     // Valibot counts UTF-16 code units, while JSON Schema counts Unicode code
-    // points. Use the codePoints actions for string schemas instead.
+    // points. Keep the conversion for compatibility and use the codePoints
+    // actions when matching JSON Schema semantics is required.
+    // TODO(v2): Revisit whether to remove or retain this conversion for compatibility.
     case 'length': {
       if (
         !Number.isInteger(valibotAction.requirement) ||
@@ -554,7 +555,7 @@ export function convertAction(
         } else {
           if (config?.errorMode === 'warn') {
             console.warn(
-              'The "length" action is deprecated for string schemas because Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "codePoints" instead.'
+              'The "length" action has different string length semantics in Valibot and JSON Schema. Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "codePoints" to match JSON Schema semantics.'
             );
           }
         }
@@ -667,7 +668,7 @@ export function convertAction(
         } else {
           if (config?.errorMode === 'warn') {
             console.warn(
-              'The "maxLength" action is deprecated for string schemas because Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "maxCodePoints" instead.'
+              'The "maxLength" action has different string length semantics in Valibot and JSON Schema. Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "maxCodePoints" to match JSON Schema semantics.'
             );
           }
         }
@@ -805,7 +806,7 @@ export function convertAction(
         } else {
           if (config?.errorMode === 'warn') {
             console.warn(
-              'The "minLength" action is deprecated for string schemas because Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "minCodePoints" instead.'
+              'The "minLength" action has different string length semantics in Valibot and JSON Schema. Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "minCodePoints" to match JSON Schema semantics.'
             );
           }
         }

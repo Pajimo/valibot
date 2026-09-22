@@ -696,7 +696,7 @@ describe('convertAction', () => {
     });
   });
 
-  test('should warn for deprecated string length actions', () => {
+  test('should warn for string length semantic differences', () => {
     const actions = [
       [v.length<v.LengthInput, 3>(3), 'length', 'codePoints'],
       [v.maxLength<v.LengthInput, 3>(3), 'maxLength', 'maxCodePoints'],
@@ -705,7 +705,7 @@ describe('convertAction', () => {
     for (const [action, actionName, replacementName] of actions) {
       convertAction({ type: 'string' }, action, { errorMode: 'warn' });
       expect(console.warn).toHaveBeenLastCalledWith(
-        `The "${actionName}" action is deprecated for string schemas because Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "${replacementName}" instead.`
+        `The "${actionName}" action has different string length semantics in Valibot and JSON Schema. Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "${replacementName}" to match JSON Schema semantics.`
       );
     }
   });

@@ -54,73 +54,73 @@ This package is particularly popular for:
 | `unknown`        | ✅     |                                                                                                                                       |
 | `variant`        | ⚠️     | The discriminator key will be ignored                                                                                                 |
 
-| Actions         | Status | Note                                                   |
-| --------------- | ------ | ------------------------------------------------------ |
-| `base64`        | ✅     |                                                        |
-| `bic`           | ✅     |                                                        |
-| `codePoints`    | ✅     |                                                        |
-| `cuid2`         | ✅     |                                                        |
-| `decimal`       | ✅     |                                                        |
-| `description`   | ✅     |                                                        |
-| `digits`        | ✅     |                                                        |
-| `domain`        | ✅     |                                                        |
-| `email`         | ✅     |                                                        |
-| `emoji`         | ✅     |                                                        |
-| `empty`         | ✅     |                                                        |
-| `endsWith`      | ✅     |                                                        |
-| `entries`       | ✅     |                                                        |
-| `examples`      | ✅     |                                                        |
-| `gtValue`       | ⚠️     | Only in combination with `number` and `integer` schema |
-| `hash`          | ✅     |                                                        |
-| `hexadecimal`   | ✅     |                                                        |
-| `hexColor`      | ✅     |                                                        |
-| `includes`      | ✅     |                                                        |
-| `integer`       | ✅     |                                                        |
-| `ipv4`          | ✅     |                                                        |
-| `ipv6`          | ✅     |                                                        |
-| `isoDate`       | ✅     |                                                        |
-| `isoDateTime`   | ✅     |                                                        |
-| `isoTime`       | ✅     |                                                        |
-| `isoTimeSecond` | ✅     |                                                        |
-| `isoTimestamp`  | ✅     |                                                        |
-| `isoWeek`       | ✅     |                                                        |
-| `isrc`          | ✅     |                                                        |
-| `jwsCompact`    | ✅     |                                                        |
-| `ksuid`         | ✅     |                                                        |
-| `length`        | ⚠️     | Deprecated for strings; use `codePoints`; arrays are supported |
-| `ltValue`       | ⚠️     | Only in combination with `number` and `integer` schema |
-| `mac`           | ✅     |                                                        |
-| `mac48`         | ✅     |                                                        |
-| `mac64`         | ✅     |                                                        |
-| `maxCodePoints` | ✅     |                                                        |
-| `maxEntries`    | ✅     |                                                        |
-| `maxLength`     | ⚠️     | Deprecated for strings; use `maxCodePoints`; arrays are supported |
-| `maxValue`      | ⚠️     | Only in combination with `number` schema               |
-| `metadata`      | ✅     | Additional properties are added without validation     |
-| `minCodePoints` | ✅     |                                                        |
-| `minEntries`    | ✅     |                                                        |
-| `minLength`     | ⚠️     | Deprecated for strings; use `minCodePoints`; arrays are supported |
-| `minValue`      | ⚠️     | Only in combination with `number` schema               |
-| `multipleOf`    | ✅     |                                                        |
-| `nanoid`        | ✅     |                                                        |
-| `nonEmpty`      | ✅     |                                                        |
-| `notCodePoints` | ✅     |                                                        |
-| `notValue`      | ⚠️     | Only JSON compatible values are supported              |
-| `notValues`     | ⚠️     | Only JSON compatible values are supported              |
-| `octal`         | ✅     |                                                        |
-| `regex`         | ⚠️     | RegExp flags are not supported in JSON Schema          |
-| `rfcEmail`      | ✅     |                                                        |
-| `safeInteger`   | ✅     |                                                        |
-| `slug`          | ✅     |                                                        |
-| `startsWith`    | ✅     |                                                        |
-| `title`         | ✅     |                                                        |
-| `ulid`          | ✅     |                                                        |
-| `url`           | ✅     |                                                        |
-| `uuid`          | ✅     |                                                        |
-| `value`         | ⚠️     | Only JSON compatible values are supported              |
-| `values`        | ⚠️     | Only JSON compatible values are supported              |
+| Actions         | Status | Note                                                               |
+| --------------- | ------ | ------------------------------------------------------------------ |
+| `base64`        | ✅     |                                                                    |
+| `bic`           | ✅     |                                                                    |
+| `codePoints`    | ✅     |                                                                    |
+| `cuid2`         | ✅     |                                                                    |
+| `decimal`       | ✅     |                                                                    |
+| `description`   | ✅     |                                                                    |
+| `digits`        | ✅     |                                                                    |
+| `domain`        | ✅     |                                                                    |
+| `email`         | ✅     |                                                                    |
+| `emoji`         | ✅     |                                                                    |
+| `empty`         | ✅     |                                                                    |
+| `endsWith`      | ✅     |                                                                    |
+| `entries`       | ✅     |                                                                    |
+| `examples`      | ✅     |                                                                    |
+| `gtValue`       | ⚠️     | Only in combination with `number` and `integer` schema             |
+| `hash`          | ✅     |                                                                    |
+| `hexadecimal`   | ✅     |                                                                    |
+| `hexColor`      | ✅     |                                                                    |
+| `includes`      | ✅     |                                                                    |
+| `integer`       | ✅     |                                                                    |
+| `ipv4`          | ✅     |                                                                    |
+| `ipv6`          | ✅     |                                                                    |
+| `isoDate`       | ✅     |                                                                    |
+| `isoDateTime`   | ✅     |                                                                    |
+| `isoTime`       | ✅     |                                                                    |
+| `isoTimeSecond` | ✅     |                                                                    |
+| `isoTimestamp`  | ✅     |                                                                    |
+| `isoWeek`       | ✅     |                                                                    |
+| `isrc`          | ✅     |                                                                    |
+| `jwsCompact`    | ✅     |                                                                    |
+| `ksuid`         | ✅     |                                                                    |
+| `length`        | ⚠️     | String semantics differ; use `codePoints`; arrays are supported    |
+| `ltValue`       | ⚠️     | Only in combination with `number` and `integer` schema             |
+| `mac`           | ✅     |                                                                    |
+| `mac48`         | ✅     |                                                                    |
+| `mac64`         | ✅     |                                                                    |
+| `maxCodePoints` | ✅     |                                                                    |
+| `maxEntries`    | ✅     |                                                                    |
+| `maxLength`     | ⚠️     | String semantics differ; use `maxCodePoints`; arrays are supported |
+| `maxValue`      | ⚠️     | Only in combination with `number` schema                           |
+| `metadata`      | ✅     | Additional properties are added without validation                 |
+| `minCodePoints` | ✅     |                                                                    |
+| `minEntries`    | ✅     |                                                                    |
+| `minLength`     | ⚠️     | String semantics differ; use `minCodePoints`; arrays are supported |
+| `minValue`      | ⚠️     | Only in combination with `number` schema                           |
+| `multipleOf`    | ✅     |                                                                    |
+| `nanoid`        | ✅     |                                                                    |
+| `nonEmpty`      | ✅     |                                                                    |
+| `notCodePoints` | ✅     |                                                                    |
+| `notValue`      | ⚠️     | Only JSON compatible values are supported                          |
+| `notValues`     | ⚠️     | Only JSON compatible values are supported                          |
+| `octal`         | ✅     |                                                                    |
+| `regex`         | ⚠️     | RegExp flags are not supported in JSON Schema                      |
+| `rfcEmail`      | ✅     |                                                                    |
+| `safeInteger`   | ✅     |                                                                    |
+| `slug`          | ✅     |                                                                    |
+| `startsWith`    | ✅     |                                                                    |
+| `title`         | ✅     |                                                                    |
+| `ulid`          | ✅     |                                                                    |
+| `url`           | ✅     |                                                                    |
+| `uuid`          | ✅     |                                                                    |
+| `value`         | ⚠️     | Only JSON compatible values are supported                          |
+| `values`        | ⚠️     | Only JSON compatible values are supported                          |
 
-> For string schemas, `length`, `minLength`, and `maxLength` have different length semantics in Valibot and JSON Schema. Valibot checks JavaScript string length (`value.length`, UTF-16 code units), while JSON Schema `minLength` and `maxLength` count Unicode code points. Their string conversion is deprecated and will be removed in v2. Use `codePoints`, `minCodePoints`, `maxCodePoints`, and `notCodePoints` for matching semantics. Set `errorMode` to `warn` to receive a runtime deprecation warning. This can differ for non-BMP code points such as emoji and for multi-code-point grapheme clusters such as combining marks or ZWJ sequences.
+> For string schemas, `length`, `minLength`, and `maxLength` have different length semantics in Valibot and JSON Schema. Valibot checks JavaScript string length (`value.length`, UTF-16 code units), while JSON Schema `minLength` and `maxLength` count Unicode code points. Their string conversion remains supported for compatibility, but it can produce different results for non-BMP code points such as emoji and for multi-code-point grapheme clusters such as combining marks or ZWJ sequences. Use `codePoints`, `minCodePoints`, `maxCodePoints`, and `notCodePoints` when matching JSON Schema semantics is required. Set `errorMode` to `warn` to receive a runtime warning.
 
 ## Configurations
 

@@ -31,7 +31,7 @@ describe('toJsonSchema', () => {
       }
     });
 
-    test('warns for deprecated string length actions', () => {
+    test('warns for string length semantic differences', () => {
       expect(
         toJsonSchema(v.pipe(v.string(), v.minLength(3)), {
           errorMode: 'warn',
@@ -42,7 +42,7 @@ describe('toJsonSchema', () => {
         minLength: 3,
       });
       expect(console.warn).toHaveBeenLastCalledWith(
-        'The "minLength" action is deprecated for string schemas because Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "minCodePoints" instead.'
+        'The "minLength" action has different string length semantics in Valibot and JSON Schema. Valibot counts UTF-16 code units while JSON Schema counts Unicode code points. Use "minCodePoints" to match JSON Schema semantics.'
       );
     });
 
