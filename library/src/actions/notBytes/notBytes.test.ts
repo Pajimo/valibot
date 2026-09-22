@@ -88,6 +88,16 @@ describe('notBytes', () => {
         encodeSpy.mockRestore();
       }
     });
+
+    test('without encoding if the requirement is below the lower byte bound', () => {
+      const encodeSpy = vi.spyOn(TextEncoder.prototype, 'encode');
+      try {
+        notBytes(1)['~run']({ typed: true, value: 'ab' }, {});
+        expect(encodeSpy).not.toHaveBeenCalled();
+      } finally {
+        encodeSpy.mockRestore();
+      }
+    });
   });
 
   describe('should return dataset with issues', () => {
